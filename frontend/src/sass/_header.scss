@@ -1,0 +1,32 @@
+.navbar-brand {
+  text-transform: uppercase;
+  font-weight: bold;
+  background-image: linear-gradient(
+    to right bottom,
+    rgb(232, 193, 95),
+    rgb(218, 165, 32),
+    rgb(151, 115, 22)
+  );
+  background-clip: text;
+  color: transparent;
+  font-size: 30px;
+}
+
+.logo {
+    width: 60px;
+    margin-right: 10px;
+    border-radius: 7px;
+}
+
+.navbar-link {
+  font-size: 25px;
+  color: white;
+}
+
+.fashoppingcart {
+  margin-right: 10px;
+}
+
+.fauser {
+  margin-right: 10px;
+}
