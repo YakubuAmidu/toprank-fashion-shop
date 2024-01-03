@@ -1,11 +1,13 @@
+@import './variables';
+
 .navbar-brand {
   text-transform: uppercase;
   font-weight: bold;
   background-image: linear-gradient(
     to right bottom,
-    rgb(232, 193, 95),
-    rgb(218, 165, 32),
-    rgb(151, 115, 22)
+     $color-light-gold,
+     $color-medium-gold,
+     $color-dark-gold
   );
   background-clip: text;
   color: transparent;
@@ -13,9 +15,9 @@
 }
 
 .logo {
-    width: 60px;
+    width: 80px;
     margin-right: 10px;
-    border-radius: 7px;
+    border-radius: 100%;
 }
 
 .navbar-link {
