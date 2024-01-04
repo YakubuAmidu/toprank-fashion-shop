@@ -1,6 +1,12 @@
 import { Fragment } from "react";
+
+// React-bootstrap
 import { Container } from "react-bootstrap";
 
+// React-router-dom
+import { Outlet } from "react-router-dom";
+
+// Imported components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -10,7 +16,7 @@ const App = () => {
       <Header />
       <main className="py-3">
         <Container>
-          <h1>Welcome to toprank-fashion-shop</h1>
+          <Outlet />
         </Container>
       </main>
       <Footer />
