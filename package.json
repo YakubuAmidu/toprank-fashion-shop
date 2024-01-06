@@ -1,0 +1,24 @@
+{
+  "name": "toprank-fashion-shop",
+  "version": "1.0.0",
+  "description": "E-commerce application built with the MERNSTACK",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm run dev --prefix frontend",
+    "dev": "concurrently \" npm run server \" \" npm run client\""
+  },
+  "author": "Yakubu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.3.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.2"
+  }
+}

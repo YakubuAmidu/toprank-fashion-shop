@@ -1,12 +1,28 @@
+import { useState, useEffect } from "react";
+
+import axios from "axios";
+
 import { Fragment } from "react";
 // React-bootstrap
 import { Col, Row } from "react-bootstrap";
 
 // Imported-components
-import products from "../products";
+// import products from "../products";
 import Product from "../components/Product";
 
 const HomeScreen = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { data } = await axios.get("/api/products");
+      setProducts(data);
+    };
+    fetchProducts();
+  }, []);
+
+  console.log("Product: ", products);
+
   return (
     <Fragment>
       <h1>Latest Products</h1>
