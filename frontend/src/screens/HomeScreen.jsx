@@ -21,8 +21,6 @@ const HomeScreen = () => {
     fetchProducts();
   }, []);
 
-  console.log("Product: ", products);
-
   return (
     <Fragment>
       <h1>Latest Products</h1>

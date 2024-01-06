@@ -1,9 +1,9 @@
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 dotenv.config();
 
 import express from "express";
 
-import morgan from 'morgan';
+import morgan from "morgan";
 
 import products from "./data/products.js";
 
@@ -20,12 +20,11 @@ app.get("/", (req, res) => {
 
 app.get("/api/products", (req, res) => {
   res.json(products);
-  console.log("Products: ", products);
 });
 
 app.get("/api/products/:id", (req, res) => {
-    const product = products.find((p) => p._id === req.params.id );
-    res.json(product);
-})
+  const product = products.find((p) => p._id === req.params.id);
+  res.json(product);
+});
 
 app.listen(port, () => console.log(`Server running on port ${port} 👍`));
