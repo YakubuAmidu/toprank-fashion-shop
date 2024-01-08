@@ -12,20 +12,20 @@ import { Fragment } from "react";
 import { Col, Row, Image, ListGroup, Card, Button } from "react-bootstrap";
 
 import Rating from "../components/Rating";
-// import products from "../products";
+import products from "../products";
 
 const ProductScreen = () => {
   const [product, setProduct] = useState({});
 
   const { id: productId } = useParams();
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      const { data } = await axios.get(`/api/products/${productId}`)
-      setProduct(data);
-    }
-    fetchProduct()
-  }, [productId])
+  // useEffect(() => {
+  //   const fetchProduct = async () => {
+  //     const { data } = await axios.get(`/api/products/${productId}`)
+  //     setProduct(data);
+  //   }
+  //   fetchProduct()
+  // }, [productId])
 
   return (
     <Fragment>
