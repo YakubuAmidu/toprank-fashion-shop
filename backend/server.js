@@ -1,6 +1,8 @@
 import express from "express";
 
-import cors from 'cors';
+import connectDB from "./config/db.js";
+
+import cors from "cors";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -29,4 +31,7 @@ app.get("/api/products/:id", (req, res) => {
   res.json(product);
 });
 
-app.listen(port, () => console.log(`Server running on port ${port} 👍`));
+app.listen(port, () => {
+  console.log(`Server running on port ${port} 👍`);
+  connectDB();
+});

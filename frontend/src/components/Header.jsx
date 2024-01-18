@@ -8,7 +8,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 
 // Logo
-import toprankfashionshoplogo from "../assets/toprank-fashion.png";
+import toprankfashionshoplogo from "../assets/toprank-fashion-shop.png";
 
 const Header = () => {
   return (
