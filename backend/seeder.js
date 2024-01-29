@@ -17,9 +17,9 @@ connectDB();
 
 const importData = async () => {
   try {
-    await Order.remove({});
-    await Product.remove({});
-    await User.remove({});
+    await Order.deleMany();
+    await Product.deleteMany();
+    await User.deleteMany();
 
     const createdUsers = await User.insertMany(users);
 
@@ -41,9 +41,9 @@ const importData = async () => {
 
 const destroyData = async () => {
   try {
-    await Order.remove({});
-    await Product.remove({});
-    await User.remove({});
+    await Order.deleMany();
+    await Product.deleMany();
+    await User.deleteMany();
 
     console.log("Data Destroyed 😔".red.inverse);
   } catch (error) {
@@ -57,3 +57,4 @@ if (process.argv[2] === "-d") {
 } else {
   importData();
 }
+
