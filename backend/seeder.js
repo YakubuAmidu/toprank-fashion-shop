@@ -17,9 +17,9 @@ connectDB();
 
 const importData = async () => {
   try {
-    await Order.deleMany();
-    await Product.deleteMany();
-    await User.deleteMany();
+    await Order.remove({});
+    await Product.remove({});
+    await User.remove({});
 
     const createdUsers = await User.insertMany(users);
 
@@ -29,7 +29,7 @@ const importData = async () => {
       return { ...product, user: adminUser };
     });
 
-    await Product.insertMany(sampleProducts);
+    await Product.insertMany({sampleProducts});
 
     console.log("Data Imported 😉".green.inverse);
     process.exit();
@@ -41,9 +41,9 @@ const importData = async () => {
 
 const destroyData = async () => {
   try {
-    await Order.deleMany();
-    await Product.deleMany();
-    await User.deleteMany();
+    await Order.remove();
+    await Product.remove();
+    await User.remove();
 
     console.log("Data Destroyed 😔".red.inverse);
   } catch (error) {
@@ -57,4 +57,3 @@ if (process.argv[2] === "-d") {
 } else {
   importData();
 }
-
