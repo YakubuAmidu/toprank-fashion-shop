@@ -29,7 +29,7 @@ const importData = async () => {
       return { ...product, user: adminUser };
     });
 
-    await Product.insertMany({sampleProducts});
+    await Product.insertMany({ sampleProducts });
 
     console.log("Data Imported 😉".green.inverse);
     process.exit();
@@ -41,9 +41,9 @@ const importData = async () => {
 
 const destroyData = async () => {
   try {
-    await Order.remove();
-    await Product.remove();
-    await User.remove();
+    await Order.remove({});
+    await Product.remove({});
+    await User.remove({});
 
     console.log("Data Destroyed 😔".red.inverse);
   } catch (error) {
