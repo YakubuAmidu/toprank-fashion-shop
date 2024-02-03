@@ -14,7 +14,8 @@ import Message from "../components/Message";
 import { addToCart, removeFromCart } from "../slices/cartSlice";
 
 const CartScreen = () => {
-  const navigate = useNavigate();
+  // eslint-disable-next-line no-unused-vars
+  var navigate = useNavigate();
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
@@ -27,6 +28,10 @@ const CartScreen = () => {
   const removeFromCartHandler = async (id) => {
     dispatch(removeFromCart(id));
   };
+
+  const checkoutHandler = () => {
+    navigate=('/login?redirect=/shipping')
+  }
 
   return (
     <Row>
@@ -96,6 +101,7 @@ const CartScreen = () => {
                 type="button"
                 className="btn-block"
                 disabled={cartItems.length === 0}
+                onClick={checkoutHandler}
               >
                 Proceed to checkout
               </Button>
