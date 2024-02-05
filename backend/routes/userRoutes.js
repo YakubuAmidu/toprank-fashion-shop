@@ -12,11 +12,11 @@ import {
   getUserByID,
   deleteUser,
   updateUser,
-} from "../controllers/userController";
+} from "../controllers/userController.js";
 
 router.route("/").post(registerUser).get(getUsers);
-router.post("/logout", logoutUser);
 router.post("/login", authUser);
+router.post("/logout", logoutUser);
 router.route("/profile").get(getUserProfile).put(updateUserProfile);
 router.route("/:id").delete(deleteUser).get(getUserByID).put(updateUser);
 
