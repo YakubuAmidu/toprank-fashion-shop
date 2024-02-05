@@ -20,15 +20,20 @@ const app = express();
 app.use(morgan("dev"));
 app.use(cors());
 
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.get("/", (req, res) => {
+  res.send("API running...💥");
+});
+
+// Routes
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
-
-app.get("/", (req, res) => {
-  res.send("API running...💥");
-});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port} 👍`);
