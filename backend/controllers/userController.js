@@ -46,7 +46,7 @@ const getUsers = asyncHandler(async (req, res) => {
 // @desc Get user by ID
 // @route GET /api/users/:id
 // @access public
-const getUser = asyncHandler(async (req, res) => {
+const   getUserByID = asyncHandler(async (req, res) => {
   res.send("Get User by ID...😔");
 });
 
@@ -66,13 +66,12 @@ const updateUser = asyncHandler(async (req, res) => {
 
 export {
   authUser,
-  getUser,
   registerUser,
   logoutUser,
   getUserProfile,
   updateUserProfile,
   getUsers,
-  getUser,
+  getUserByID,
   deleteUser,
   updateUser,
 };
