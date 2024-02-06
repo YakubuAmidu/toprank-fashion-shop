@@ -25,13 +25,13 @@ const CartScreen = () => {
     dispatch(addToCart({ ...product, qty }));
   };
 
-  const removeFromCartHandler = async (id) => {
+  const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
   };
 
   const checkoutHandler = () => {
-    navigate=('/login?redirect=/shipping')
-  }
+    navigate = "/login?redirect=/shipping";
+  };
 
   return (
     <Row>

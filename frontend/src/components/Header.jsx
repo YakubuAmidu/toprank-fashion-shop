@@ -14,8 +14,6 @@ import toprankfashionshoplogo from "../assets/toprank-fashion-shop.png";
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
-  console.log("CARTITEMS: ", cartItems);
-
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
@@ -34,7 +32,7 @@ const Header = () => {
                   <FaShoppingCart className="fashoppingcart" />
                   Cart
                   {cartItems.length > 0 && (
-                    <Badge pill bg="success" style={{ marginLeft: "5px" }}>
+                    <Badge pill bg='success' style={{ marginLeft: '5px' }}>
                       {cartItems.reduce((a, c) => a + c.qty, 0)}
                     </Badge>
                   )}
