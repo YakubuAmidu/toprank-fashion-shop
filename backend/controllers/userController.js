@@ -23,7 +23,7 @@ const authUser = asyncHandler(async (req, res) => {
       sameSite: "strict",
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
     });
-    
+
     res.json({
       _id: user._id,
       name: user.name,
@@ -47,7 +47,12 @@ const registerUser = asyncHandler(async (req, res) => {
 // @route POST /api/users/logout
 // @access private
 const logoutUser = asyncHandler(async (req, res) => {
-  res.send("Logout User...😔");
+  res.cookie("jwt", "", {
+    httpOnly: true,
+    expiresIn: new Date(0),
+  });
+
+  res.status(200).json({ message: "Logged out successfully" });
 });
 
 // @desc Get user profile
