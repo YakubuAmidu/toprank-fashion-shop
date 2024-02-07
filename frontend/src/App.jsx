@@ -1,5 +1,9 @@
 import { Fragment } from "react";
 
+// React-toastify
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // React-bootstrap
 import { Container } from "react-bootstrap";
 
@@ -20,6 +24,7 @@ const App = () => {
         </Container>
       </main>
       <Footer />
+      <ToastContainer />
     </Fragment>
   );
 };
