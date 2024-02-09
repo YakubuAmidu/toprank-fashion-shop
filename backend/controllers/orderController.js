@@ -25,13 +25,29 @@ const getOrderById = asyncHandler(async (req, res) => {
 // @desc Update order to paid
 // @route GET /api/orders/:id/pay
 // @access Private
-const updateOrderToPay = asyncHandler(async (req, res) => {
-    res.send("Update order to paid..");
-  });
+const updateOrderToPaid = asyncHandler(async (req, res) => {
+  res.send("Update order to paid..");
+});
 
-  // @desc Update order to delivered
+// @desc Update order to delivered
 // @route GET /api/orders/:id/deliver
-// @access Private
+// @access Private/admin
 const updateOrderToDelivered = asyncHandler(async (req, res) => {
-    res.send("Update order to delivered...");
-  });
+  res.send("Update order to delivered...");
+});
+
+// @desc Get all orders
+// @route GET /api/orders
+// @access Private/admin
+const getOrders = asyncHandler(async (req, res) => {
+  res.send("Get all orders...");
+});
+
+export {
+  addOrderItems,
+  getMyOrders,
+  getOrderById,
+  updateOrderToPaid,
+  updateOrderToDelivered,
+  getOrders,
+};
