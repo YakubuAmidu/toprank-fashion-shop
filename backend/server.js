@@ -3,6 +3,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 
 import productRoutes from "./routes/productRoutes.js";
+import orderRoutes from './routes/orderRoutes.js';
 import userRoutes from "./routes/userRoutes.js";
 
 import { notFound, errorHandler } from "./middleware/errorMilddleware.js";
@@ -35,6 +36,7 @@ app.get("/", (req, res) => {
 
 // Routes
 app.use("/api/products", productRoutes);
+app.use("/api/orders", orderRoutes);
 app.use("/api/users", userRoutes);
 
 app.use(notFound);
