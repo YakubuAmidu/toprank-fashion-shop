@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
@@ -11,6 +11,7 @@ import { clearCartItems } from "../slices/cartSlice";
 
 const PlaceOrderScreen = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
 
@@ -24,8 +25,6 @@ const PlaceOrderScreen = () => {
     }
   }, [cart.paymentMethod, cart.shippingAddress.address, navigate]);
 
-  const dispatch = useDispatch();
-  
   const placeOrderHandler = async () => {
     try {
       const res = await createOrder({
@@ -39,13 +38,13 @@ const PlaceOrderScreen = () => {
       }).unwrap();
       dispatch(clearCartItems());
       navigate(`/order/${res._id}`);
-    } catch (err) {
-      toast.error(err);
+    } catch (error) {
+      toast.error(error);
     }
   };
 
   return (
-    <>
+    <Fragment>
       <CheckoutSteps step1 step2 step3 step4 />
       <Row>
         <Col md={8}>
@@ -132,7 +131,7 @@ const PlaceOrderScreen = () => {
               </ListGroup.Item>
               <ListGroup.Item>
                 {error && (
-                  <Message variant="danger">{error.data.message}</Message>
+                  <Message variant="danger">{error?.data?.message}</Message>
                 )}
               </ListGroup.Item>
               <ListGroup.Item>
@@ -150,7 +149,7 @@ const PlaceOrderScreen = () => {
           </Card>
         </Col>
       </Row>
-    </>
+    </Fragment>
   );
 };
 
