@@ -88,7 +88,16 @@ const OrderScreen = () => {
             </ListGroup.Item>
           </ListGroup>
         </Col>
-        <Col md={4}>Column</Col>
+        <Col md={4}>
+          <Card>
+            <ListGroup variant="flush">
+              <ListGroup.Item>
+                <h2>Order Summary</h2>
+              </ListGroup.Item>
+              <ListGroup.Item>iieiei</ListGroup.Item>
+            </ListGroup>
+          </Card>
+        </Col>
       </Row>
     </Fragment>
   );
