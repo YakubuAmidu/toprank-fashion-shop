@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
@@ -25,6 +25,7 @@ const PlaceOrderScreen = () => {
   }, [cart.paymentMethod, cart.shippingAddress.address, navigate]);
 
   const dispatch = useDispatch();
+  
   const placeOrderHandler = async () => {
     try {
       const res = await createOrder({

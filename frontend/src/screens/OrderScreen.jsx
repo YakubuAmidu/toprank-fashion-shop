@@ -11,12 +11,30 @@ import {
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { useGetOrderDetailsQuery } from "../slices/ordersApiSlice";
+import { Fragment } from "react";
 
 const OrderScreen = () => {
-  return (
-    <div>
-      <h1>Order Screen</h1>
-    </div>
+  const { id: orderId } = useParams();
+
+  const {
+    data: order,
+    refetch,
+    isLoading,
+    error,
+  } = useGetOrderDetailsQuery(orderId);
+
+  return isLoading ? (
+    <Loader />
+  ) : error ? (
+    <Message variant="danger" />
+  ) : (
+    <Fragment>
+      <h1>Order: {order._id}</h1>
+      <Row>
+        <Col md={8}>Column</Col>
+        <Col md={4}>Column</Col>
+      </Row>
+    </Fragment>
   );
 };
 
