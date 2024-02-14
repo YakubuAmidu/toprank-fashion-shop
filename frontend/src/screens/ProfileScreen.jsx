@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { useProfileMutation } from "../slices/usersApiSlice";
-import { FaTimes } from "react-icons";
+import { FaTimes } from "react-icons/fa";
 import { setCredentials } from "../slices/authSlice";
 import { useGetMyOrdersQuery } from "../slices/ordersApiSlice";
 
@@ -137,6 +137,20 @@ const ProfileScreen = () => {
                     ) : (
                       <FaTimes style={{ color: "red" }} />
                     )}
+                  </td>
+                  <td>
+                    {order.isDelivered ? (
+                      order.isdeliveredAt.substring(0, 10)
+                    ) : (
+                      <FaTimes style={{ color: "red" }} />
+                    )}
+                  </td>
+                  <td>
+                    <LinkContainer to={`/order/${order._id}`}>
+                      <Button className="btn-sm" variant="light">
+                        Details
+                      </Button>
+                    </LinkContainer>
                   </td>
                 </tr>
               ))}
