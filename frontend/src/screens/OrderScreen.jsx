@@ -1,14 +1,6 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import {
-  Col,
-  Row,
-  Image,
-  Button,
-  ListGroup,
-  Form,
-  Card,
-} from "react-bootstrap";
+import { Col, Row, Image, Button, ListGroup, Card } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
@@ -67,11 +59,11 @@ const OrderScreen = () => {
     }
   }, [errorPayPal, loadingPayPal, order, paypal, paypalDispatch]);
 
-  async function onApproveTest() {
-    await payOrder({ orderId, details: { payer: {} } });
-    refetch();
-    toast.success("Payment successfull...👍");
-  }
+  // async function onApproveTest() {
+  //   await payOrder({ orderId, details: { payer: {} } });
+  //   refetch();
+  //   toast.success("Payment successfull...👍");
+  // }
 
   function createOrder(data, actions) {
     return actions.order
@@ -229,7 +221,7 @@ const OrderScreen = () => {
                   )}
                 </ListGroup.Item>
               )}
-              {isLoading && <Loader />}
+              {loadingDeliver && <Loader />}
 
               {userInfo &&
                 userInfo.isAdmin &&
