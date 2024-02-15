@@ -22,7 +22,10 @@ import {
 import Rating from "../components/Rating";
 // import products from "../products";
 
-import { useGetProductDetailsQuery } from "../slices/productsApiSlice";
+import {
+  useGetProductDetailsQuery,
+  useCreateProductMutation,
+} from "../slices/productsApiSlice";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { addToCart } from "../slices/cartSlice";
