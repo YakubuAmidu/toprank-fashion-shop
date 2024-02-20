@@ -11,6 +11,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { logout } from "../slices/authSlice";
 
+import SearchBox from './SearchBox';
+
 // React-icons
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 
@@ -49,6 +51,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
+              <SearchBox />
               <LinkContainer to="/cart" className="navbar-link">
                 <Nav.Link href="/cart">
                   <FaShoppingCart className="fashoppingcart" />

@@ -6,7 +6,7 @@ import { Col, Row } from "react-bootstrap";
 import Product from "../components/Product";
 import Paginate from "../components/Paginate";
 
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
@@ -21,6 +21,11 @@ const HomeScreen = () => {
 
   return (
     <Fragment>
+      {keyword && (
+        <Link to="/" className="btn btn-light mb-4">
+          Go back
+        </Link>
+      )}
       {isLoading ? (
         <Loader />
       ) : error ? (
