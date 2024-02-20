@@ -3,8 +3,9 @@ import { Fragment } from "react";
 import { Col, Row } from "react-bootstrap";
 
 // Imported-components
-// import products from "../products";
 import Product from "../components/Product";
+import Paginate from "../components/Paginate";
+
 import { useParams } from "react-router-dom";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
 import Loader from "../components/Loader";
@@ -12,7 +13,7 @@ import Message from "../components/Message";
 
 const HomeScreen = () => {
   const { pageNumber } = useParams();
-  
+
   const { data, isLoading, error } = useGetProductsQuery({ pageNumber });
 
   return (
@@ -24,7 +25,7 @@ const HomeScreen = () => {
           {error?.data?.message || error.error}
         </Message>
       ) : (
-        <>
+        <Fragment>
           <h1>Latest Products</h1>
           <Row>
             {data.products.map((product) => (
@@ -33,7 +34,8 @@ const HomeScreen = () => {
               </Col>
             ))}
           </Row>
-        </>
+          <Paginate pages={data.pages} page={data.page} />
+        </Fragment>
       )}
     </Fragment>
   );
