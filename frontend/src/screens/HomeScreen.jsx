@@ -22,18 +22,19 @@ const HomeScreen = () => {
 
   return (
     <Fragment>
-      {!keyword ? (
+       {!keyword ? (
         <ProductCarousel />
       ) : (
-        <Link to="/" className="btn btn-light mb-4">
-          Go back
+        <Link to='/' className='btn btn-light mb-4'>
+          Go Back
         </Link>
       )}
-      {isLoading ? (
+      {
+      isLoading ? (
         <Loader />
       ) : error ? (
-        <Message variant="danger">
-          {error?.data?.message || error.error}
+        <Message variant='danger'>
+          {error.data.message || error.error}
         </Message>
       ) : (
         <Fragment>

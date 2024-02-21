@@ -22,7 +22,7 @@ import {
 } from "react-bootstrap";
 
 import Rating from "../components/Rating";
-// import products from "../products";
+import Meta from "../components/Meta";
 
 import {
   useGetProductDetailsQuery,
@@ -84,11 +84,10 @@ const ProductScreen = () => {
       {isLoading ? (
         <Loader />
       ) : error ? (
-        <Message variant="danger">
-          {error?.data?.message || error.error}
-        </Message>
+        <Message variant="danger">{error.data.message || error.error}</Message>
       ) : (
         <Fragment>
+          <Meta title={product.name} />
           <Row>
             <Col md={5}>
               <Image src={product.image} alt={product.name} fluid />
