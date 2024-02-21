@@ -3,13 +3,14 @@ import { Fragment } from "react";
 import { Col, Row } from "react-bootstrap";
 
 // Imported-components
-import Product from "../components/Product";
-import Paginate from "../components/Paginate";
+import Product from "../components/Product.jsx";
+import Paginate from "../components/Paginate.jsx";
+import ProductCarousel from "../components/ProductCarousel.jsx";
 
 import { useParams, Link } from "react-router-dom";
-import { useGetProductsQuery } from "../slices/productsApiSlice";
-import Loader from "../components/Loader";
-import Message from "../components/Message";
+import { useGetProductsQuery } from "../slices/productsApiSlice.js";
+import Loader from "../components/Loader.jsx";
+import Message from "../components/Message.jsx";
 
 const HomeScreen = () => {
   const { keyword, pageNumber } = useParams();
@@ -21,7 +22,9 @@ const HomeScreen = () => {
 
   return (
     <Fragment>
-      {keyword && (
+      {!keyword ? (
+        <ProductCarousel />
+      ) : (
         <Link to="/" className="btn btn-light mb-4">
           Go back
         </Link>
